@@ -31,11 +31,15 @@ namespace XiaomiWinForm
             {
                 var groupInfo = new GroupScoreRank();
                 if (result.Exists(m => m.GroupName == (groupMap.ContainsKey(metaData.WechatId) ? groupMap[metaData.WechatId] : "Other")))
-                {}
+                {
+                    //foreach()
+                }
                 else
                 {
                     groupInfo.GroupName = groupMap.ContainsKey(metaData.WechatId) ? groupMap[metaData.WechatId] : "Other";
                     groupInfo.Score = metaData.Score;
+                    groupInfo.ScoreData = metaData.CreatedDate;
+                    result.Add(groupInfo);
                 }
             }
             return result;
