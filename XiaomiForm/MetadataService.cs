@@ -44,7 +44,7 @@ namespace XiaomiWinForm
         public List<MetaData> GetAllMetaData(DateTime fromDate,DateTime toDate)
         {
             var conn = XiaoMiData.GetConnectstr();
-            var sql = @"SELECT * From Innocellence_GSK_WeChat_HM_MetaData where CreatedDate>="+fromDate.Date+" and CreatedDate<="+toDate.Date;
+            var sql = @"SELECT * From Innocellence_GSK_WeChat_HM_MetaData where CreatedDate>='"+fromDate.Date+"' and CreatedDate<='"+toDate.Date+"'";
             var data = SqlHelper.ExecuteDataset(conn, CommandType.Text, sql).Tables[0];
             var result = SqlHelper.ConvertTo<MetaData>(data).ToList();
             return result;
