@@ -19,7 +19,7 @@ namespace XiaomiWinForm
             var conn = XiaoMiData.GetConnectstr();
             var selectString = "select * from Innocellence_GSK_WeChat_HM_MetaData where WechatId='{0}'and CreatedDate='{1}' ";
             var updateString = "update Innocellence_GSK_WeChat_HM_MetaData set Steps={0},Score={1} where WechatId='{2}'and CreatedDate='{3}'";
-            var createString = "insert into Innocellence_GSK_WeChat_HM_MetaData(WechatId,CreatedDate,Steps,Score) values ({0},'{1}',{2},{3})";
+            var createString = "insert into Innocellence_GSK_WeChat_HM_MetaData(WechatId,CreatedDate,Steps,Score) values ('{0}','{1}',{2},{3})";
             var data = SqlHelper.ExecuteDataset(conn, CommandType.Text, string.Format(selectString, personSetting.WechatId, xiaoMiData.date)).Tables[0];
             var metaDataResult = SqlHelper.ConvertTo<MetaData>(data).ToList();
             if (metaDataResult.Count > 0)
