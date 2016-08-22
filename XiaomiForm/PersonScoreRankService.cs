@@ -15,6 +15,7 @@ namespace XiaomiWinForm
         public List<PersonScoreRank> GetNewPersonStepRank(List<MetaData> allMetaData)
         {
             var personRank = new List<PersonScoreRank>();
+            var wechatMap = XiaoMiData.GetWeChatNameById();
             foreach (var metadata in allMetaData)
             {
                 var onePerson = new PersonScoreRank();
@@ -30,7 +31,7 @@ namespace XiaomiWinForm
                 {
                     onePerson.Score = metadata.Score;
                     onePerson.WechatId = metadata.WechatId;
-                    onePerson.WechatName = XiaoMiData.GetWeChatNameById(metadata.WechatId);
+                    onePerson.WechatName = wechatMap.ContainsKey(metadata.WechatId)?wechatMap[metadata.WechatId]:"";
                     personRank.Add(onePerson);
                 }
             }

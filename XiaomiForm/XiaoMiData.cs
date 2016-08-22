@@ -61,15 +61,15 @@ namespace XiaomiWinForm
             return conn;
         }
 
-        public static string GetWeChatNameById(string weChatId)
+        public static Dictionary<string, string> GetWeChatNameById()
         {
             var conn = XiaoMiData.GetConnectstr();
-            var sql = @"SELECT WechatName FROM Innocellence_GSK_WeChat_HM_Setting where WechatId='{0}'";
-            var data = SqlHelper.ExecuteReader(conn, CommandType.Text, string.Format(sql, weChatId));
-            var result = "";
+            var sql = @"SELECT WechatId,WechatName FROM Innocellence_GSK_WeChat_HM_Setting";
+            var data = SqlHelper.ExecuteReader(conn, CommandType.Text,sql);
+            var result = new Dictionary<string,string>();
             while (data.Read())
             {
-                result = data[0] != null ? data.GetString(0) : "";
+                result[data.GetString(0)] = data.GetString(1);
             }
             return result;
         }

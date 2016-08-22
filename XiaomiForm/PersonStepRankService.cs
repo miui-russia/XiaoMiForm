@@ -16,6 +16,7 @@ namespace XiaomiWinForm
         public List<PersonStepRank> GetPersonStepRankList(List<MetaData> allMetadata)
         {
             var personStepRankList = new List<PersonStepRank>();
+            var wechatMap = XiaoMiData.GetWeChatNameById(); 
             foreach (var metadata in allMetadata)
             {
                 var personStepRank = new PersonStepRank();
@@ -34,14 +35,19 @@ namespace XiaomiWinForm
                     personStepRank.RankByDay = GetPersonStepRankByWeChatId(metadata.WechatId);
                     personStepRank.Steps = metadata.Steps;
                     personStepRank.WechatId = metadata.WechatId;
-                    personStepRank.WechatName = XiaoMiData.GetWeChatNameById(metadata.WechatId);
+                    personStepRank.WechatName = wechatMap.ContainsKey(metadata.WechatId) ? wechatMap[metadata.WechatId] : "";
                     personStepRankList.Add(personStepRank);
                 }
             }
             var personStepRankListResult = personStepRankList.OrderByDescending(m => m.Steps).ToList();
-            for (var i = 0; i < personStepRankListResult.Count(); i++)
+            for (var i = 0; i < personStepRankListResult.Count; i++)
             {
                 personStepRankListResult[i].Rank = i + 1;
+            }
+            personStepRankListResult = personStepRankListResult.OrderByDescending(m => m.StepsByDay).ToList();
+            for (var i = 0; i < personStepRankListResult.Count; i++)
+            {
+                personStepRankListResult[i].RankByDay = i + 1;
             }
             return personStepRankListResult;
         }
@@ -56,7 +62,7 @@ namespace XiaomiWinForm
             {
                 result = (int)data.GetInt64(0);
             }
-            return result;
+            return result==0?-1:result;
         }
 
         public void UpdatePersonStepRank(List<PersonStepRank> allPersonRank)

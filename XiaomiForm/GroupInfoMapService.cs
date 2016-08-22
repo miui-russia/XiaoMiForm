@@ -13,7 +13,7 @@ namespace XiaomiWinForm
         {
             var result = new Dictionary<string, string>();
             var conn = XiaoMiData.GetConnectstr();
-            var sql = @"select Account,GroupName from Innocellence_GSK_WeChat_IPP_GroupInfo";
+            var sql = @"select Account,GroupName from Innocellence_GSK_WeChat_HM_GroupInfo";
             var data = SqlHelper.ExecuteReader(conn, CommandType.Text, sql);
             while (data.Read())
             {
@@ -22,18 +22,35 @@ namespace XiaomiWinForm
             return result;
         }
 
-        public List<GroupScoreRank> getGroupScoreRank()
+        private Dictionary<string, int> getGroupNameAndCountMap()
+        {
+            var result = new Dictionary<string, int>();
+            var conn = XiaoMiData.GetConnectstr();
+            var sql = @"select GroupName,count(GroupName) from Innocellence_GSK_WeChat_HM_GroupInfo group by GroupName";
+            var data = SqlHelper.ExecuteReader(conn, CommandType.Text, sql);
+            while (data.Read())
+            {
+                result[data.GetString(0)] = data.GetInt32(1);
+            }
+            return result;
+        }
+
+        public List<GroupScoreRank> getGroupScoreRank(DateTime fromDate,DateTime toDate)
         {
             var result = new List<GroupScoreRank>();
             var metaDataService = new MetadataService();
             var groupMap = getGroupAndUserMap();
-            var eightDayMetaData = metaDataService.GetAllMetaData();
+            var eightDayMetaData = metaDataService.GetAllMetaData(fromDate, toDate);
             foreach (var metaData in eightDayMetaData)
             {
+                if (!groupMap.ContainsKey(metaData.WechatId))
+                {
+                    continue;
+                }
                 var groupInfo = new GroupScoreRank();
                 if (result.Exists(m => m.GroupName == (groupMap.ContainsKey(metaData.WechatId) ? groupMap[metaData.WechatId] : "Other")))
                 {
-                    var currentDate = result.Find(g => g.ScoreData == metaData.CreatedDate && g.GroupName == groupMap[metaData.WechatId]);
+                    var currentDate = result.Find(g => g.ScoreData == metaData.CreatedDate && g.GroupName == (groupMap.ContainsKey(metaData.WechatId) ? groupMap[metaData.WechatId] : "Other"));
                     if (currentDate != null)
                     {
                         currentDate.Score += metaData.Score;
@@ -54,14 +71,14 @@ namespace XiaomiWinForm
                     result.Add(groupInfo);
                 }
             }
-            return DealSumScore(result);
+            return DealSumScore(result,fromDate);
         }
 
-        public List<GroupScoreRank> DealSumScore(List<GroupScoreRank> groupList)
+        public List<GroupScoreRank> DealSumScore(List<GroupScoreRank> groupList, DateTime fromDate)
         {
-            var allGroupName = new List<string> { "Medical China", "NS", "PTS", "Combo"};
+            var allGroupName = new List<string> { "Medical China", "NS", "PTS", "Combo" };
             var allDateTime = new List<DateTime>();
-            for (var i = 0; i<=(DateTime.Now.Date-new DateTime(2016,8,1).Date).Days ; i++)
+            for (var i = 0; i <= (DateTime.Now.Date - fromDate.Date).Days; i++)
             {
                 allDateTime.Add(DateTime.Now.AddDays(-i).Date);
             }
@@ -84,6 +101,12 @@ namespace XiaomiWinForm
                         currentGroup.TotalScore += tempGroup.Score;
                     }
                 }
+            }
+            var groupAndCountMap = getGroupNameAndCountMap();
+            foreach (var groupTotal in groupList)
+            {
+                groupTotal.TotalScore = Math.Round(groupTotal.TotalScore / (groupAndCountMap.ContainsKey(groupTotal.GroupName) ? groupAndCountMap[groupTotal.GroupName] : 1),2);
+
             }
             return groupList.OrderBy(g=>g.GroupName).ThenBy(g=>g.ScoreData).ToList();;
         }
