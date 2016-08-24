@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using Innocellence.GSK.WeChat.HM.Models;
 using Innocellence.GSK.WeChat.Module.Common;
@@ -57,12 +58,16 @@ namespace XiaomiWinForm
             var result = 0;
             var conn = XiaoMiData.GetConnectstr();
             var sqlString = "select stepRank from (select WechatId,rank() over (order by steps desc)AS stepRank from Innocellence_GSK_WeChat_HM_MetaData where CreatedDate='{0}') as rankTable where WechatId='{1}'";
-            var data = SqlHelper.ExecuteReader(conn, CommandType.Text, string.Format(sqlString, DateTime.Now.Date, WechatId));
-            while (data.Read())
+            using (SqlConnection connection = new SqlConnection(conn))
             {
-                result = (int)data.GetInt64(0);
+                connection.Open();
+                var data = SqlHelper.ExecuteReader(connection, CommandType.Text, string.Format(sqlString, DateTime.Now.Date, WechatId));
+                while (data.Read())
+                {
+                    result = (int)data.GetInt64(0);
+                }
+                return result == 0 ? -1 : result;
             }
-            return result==0?-1:result;
         }
 
         public void UpdatePersonStepRank(List<PersonStepRank> allPersonRank)

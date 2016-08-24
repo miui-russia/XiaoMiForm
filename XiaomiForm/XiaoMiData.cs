@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Script.Serialization;
 using Innocellence.GSK.WeChat.HM.Models;
@@ -65,13 +66,17 @@ namespace XiaomiWinForm
         {
             var conn = XiaoMiData.GetConnectstr();
             var sql = @"SELECT WechatId,WechatName FROM Innocellence_GSK_WeChat_HM_Setting";
-            var data = SqlHelper.ExecuteReader(conn, CommandType.Text,sql);
-            var result = new Dictionary<string,string>();
-            while (data.Read())
+            using (SqlConnection connection = new SqlConnection(conn))
             {
-                result[data.GetString(0)] = data.GetString(1);
+                connection.Open();
+                var data = SqlHelper.ExecuteReader(connection, CommandType.Text, sql);
+                var result = new Dictionary<string, string>();
+                while (data.Read())
+                {
+                    result[data.GetString(0)] = data.GetString(1);
+                }
+                return result;
             }
-            return result;
         }
 
 

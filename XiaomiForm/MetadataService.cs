@@ -49,5 +49,21 @@ namespace XiaomiWinForm
             var result = SqlHelper.ConvertTo<MetaData>(data).ToList();
             return result;
         }
+
+        public void dealRewardMetadata(List<MetaData> allMetadata)
+        {
+            var sql = @"select * from Innocellence_GSK_WeChat_HM_Score";
+            var conn = XiaoMiData.GetConnectstr();
+            var data = SqlHelper.ExecuteDataset(conn, CommandType.Text, sql).Tables[0];
+            var result = SqlHelper.ConvertTo<Score>(data).ToList();
+            foreach (var score in result)
+            {
+                var traget=allMetadata.Find(m => m.WechatId == score.WechatId&&DateTime.Compare(m.CreatedDate.Date,score.CreatedDate.Date)==0);
+                if (traget != null)
+                {
+                    traget.Score += score.score;                    
+                }
+            }
+        }
     }
 }

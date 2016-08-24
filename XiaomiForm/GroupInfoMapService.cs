@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using Innocellence.GSK.WeChat.HM.Models;
 using Innocellence.GSK.WeChat.Module.Common;
@@ -14,12 +15,16 @@ namespace XiaomiWinForm
             var result = new Dictionary<string, string>();
             var conn = XiaoMiData.GetConnectstr();
             var sql = @"select Account,GroupName from Innocellence_GSK_WeChat_HM_GroupInfo";
-            var data = SqlHelper.ExecuteReader(conn, CommandType.Text, sql);
-            while (data.Read())
+            using (SqlConnection connection = new SqlConnection(conn))
             {
-                result[data.GetString(0)] = data.GetString(1);
+                connection.Open();
+                var data = SqlHelper.ExecuteReader(connection, CommandType.Text, sql);
+                while (data.Read())
+                {
+                    result[data.GetString(0)] = data.GetString(1);
+                }
+                return result;
             }
-            return result;
         }
 
         private Dictionary<string, int> getGroupNameAndCountMap()
@@ -27,12 +32,16 @@ namespace XiaomiWinForm
             var result = new Dictionary<string, int>();
             var conn = XiaoMiData.GetConnectstr();
             var sql = @"select GroupName,count(GroupName) from Innocellence_GSK_WeChat_HM_GroupInfo group by GroupName";
-            var data = SqlHelper.ExecuteReader(conn, CommandType.Text, sql);
-            while (data.Read())
+            using (SqlConnection connection = new SqlConnection(conn))
             {
-                result[data.GetString(0)] = data.GetInt32(1);
+                connection.Open();
+                var data = SqlHelper.ExecuteReader(connection, CommandType.Text, sql);
+                while (data.Read())
+                {
+                    result[data.GetString(0)] = data.GetInt32(1);
+                }
+                return result;
             }
-            return result;
         }
 
         public List<GroupScoreRank> getGroupScoreRank(DateTime fromDate,DateTime toDate)
@@ -41,6 +50,7 @@ namespace XiaomiWinForm
             var metaDataService = new MetadataService();
             var groupMap = getGroupAndUserMap();
             var eightDayMetaData = metaDataService.GetAllMetaData(fromDate, toDate);
+            metaDataService.dealRewardMetadata(eightDayMetaData);
             foreach (var metaData in eightDayMetaData)
             {
                 if (!groupMap.ContainsKey(metaData.WechatId))

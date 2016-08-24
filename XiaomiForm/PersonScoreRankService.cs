@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using Innocellence.GSK.WeChat.HM.Models;
 using Innocellence.GSK.WeChat.Module.Common;
@@ -35,12 +36,37 @@ namespace XiaomiWinForm
                     personRank.Add(onePerson);
                 }
             }
+            dealRewardsScore(personRank);
             var personRankResult = personRank.OrderByDescending(p => p.Score).ToList();
             for (var i = 0; i < personRankResult.Count(); i++)
             {
                 personRankResult[i].Rank = i + 1;
             }
             return personRankResult;
+        }
+
+        public void dealRewardsScore(List<PersonScoreRank> personScoreRank)
+        {
+            var sql = @"SELECT WechatId,sum([score]) as score FROM Innocellence_GSK_WeChat_HM_Score group by WechatId";
+            var conn = XiaoMiData.GetConnectstr();
+            var result = new Dictionary<string, int>();
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                connection.Open();
+                var data = SqlHelper.ExecuteReader(connection, CommandType.Text, sql);
+                while (data.Read())
+                {
+                    result[data.GetString(0)] = data.GetInt32(1);
+                }
+            }
+            foreach (var rewardsScore in result)
+            {
+                var targetPerson = personScoreRank.Find(p => p.WechatId == rewardsScore.Key);
+                if (targetPerson != null)
+                {
+                    targetPerson.Score += rewardsScore.Value;
+                }
+            }
         }
 
         public void UpdatePersonRank(List<PersonScoreRank> personScoreRank)
