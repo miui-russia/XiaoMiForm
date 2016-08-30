@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using Innocellence.GSK.WeChat.HM.Models;
+using Innocellence.Xiaomi.HttpUtility;
 
 namespace XiaomiWinForm
 {
@@ -15,14 +17,24 @@ namespace XiaomiWinForm
             InitializeComponent();
             myRichText = richTextBox1;
             richTextBox1.Text += "load form\r\n";
+            LogHelper.Info(typeof(Form1), "load form");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text += "click button\r\n";
-            var date = dateTimePicker1.Value;
-            Thread myTread = new Thread(new ParameterizedThreadStart(SyncXiaoMiData));
-            myTread.Start(new DateTime(2016, 8, 22));
+            try
+            {
+                richTextBox1.Text += "click button\r\n";
+                var date = dateTimePicker1.Value;
+                Thread myTread = new Thread(new ParameterizedThreadStart(SyncXiaoMiData));
+                myTread.Start(new DateTime(2016, 8, 22));
+                LogHelper.Info(typeof(Form1), "begin sync tread");
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(typeof (Form1), ex);
+            }
+
             //ThreadPool.QueueUserWorkItem(SyncXiaoMiData,date.Date);
             //SyncXiaoMiData(date.Date);
         }
@@ -37,6 +49,7 @@ namespace XiaomiWinForm
             }
             catch (Exception ex)
             {
+                LogHelper.Error(typeof (Form1), ex);
                 richTextBox1.Text += "some thing go wrong";
             }
         }
@@ -57,21 +70,28 @@ namespace XiaomiWinForm
         }
         private void SyncXiaoMiData(object date)
         {
-            Control.CheckForIllegalCrossThreadCalls = false;
-            var fromDate = date as DateTime? ?? new DateTime();
-            var xiaomiDate = new XiaoMiData();
-            richTextBox1.Text = ""+DateTime.Now;
-            richTextBox1.Text += "begin get setting from DB\r\n";
-            var settingList = xiaomiDate.GetSetting();
-            richTextBox1.Text += string.Format("getted {0} settings,they are:\r\n", settingList.Count);
-            UpdateMetadata(settingList);
-            richTextBox1.Text += "Update Person metadata success!\r\n";
-            UpdateScoreRank(fromDate);
-            richTextBox1.Text += "Update Person score Rank success!\r\n";
-            UpdateStepRank(fromDate);
-            richTextBox1.Text += "Update Person step Rank success!\r\n";
-            UpdateGroupRank(fromDate);
-            richTextBox1.Text += "Update Person group Rank success!\r\n";
+            try
+            {
+                Control.CheckForIllegalCrossThreadCalls = false;
+                var fromDate = date as DateTime? ?? new DateTime();
+                var xiaomiDate = new XiaoMiData();
+                richTextBox1.Text = "" + DateTime.Now;
+                richTextBox1.Text += "begin get setting from DB\r\n";
+                var settingList = xiaomiDate.GetSetting();
+                richTextBox1.Text += string.Format("getted {0} settings,they are:\r\n", settingList.Count);
+                UpdateMetadata(settingList);
+                richTextBox1.Text += "Update Person metadata success!\r\n";
+                UpdateScoreRank(fromDate);
+                richTextBox1.Text += "Update Person score Rank success!\r\n";
+                UpdateStepRank(fromDate);
+                richTextBox1.Text += "Update Person step Rank success!\r\n";
+                UpdateGroupRank(fromDate);
+                richTextBox1.Text += "Update Person group Rank success!\r\n";
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(typeof (Form1), ex);
+            }
         }
 
         private void UpdateMetadata(List<Setting> allSetting)
@@ -91,6 +111,10 @@ namespace XiaomiWinForm
                         MetadataService.UpdateMetaData(setting, data);
                         richTextBox1.Text += "update Metadata date:" + data.date + " steps: " + data.step + "\r\n";
                     }
+                }
+                else
+                {
+                    LogHelper.Error(typeof (Form1), "get setting date error: wechatId:" + setting.WechatId);
                 }
             }
         }
@@ -135,6 +159,52 @@ namespace XiaomiWinForm
             myTimer.Stop();
             button1.Enabled = true;
             button2.Enabled = false;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var xiaomiDate = new XiaoMiData();
+                var allSetting = xiaomiDate.GetSetting();
+                richTextBox1.Text = "get all setting,count:" + allSetting.Count;
+                LogHelper.Info(typeof(Form1), "get all setting,count:" + allSetting.Count);
+                foreach (var setting in allSetting)
+                {
+                    //if (setting.WechatId != "13354280516")
+                    //{
+                    //    continue;
+                    //}
+                    richTextBox1.Text += "get old access token:wechatId:" + setting.WechatId;
+                    LogHelper.Info(typeof(Form1), "get old access token:wechatId:" + setting.WechatId);
+                    if (setting.RefreshToken != null)
+                    {
+                        var url = xiaomiDate.RefreshTokenURL(setting.RefreshToken);
+                        LogHelper.Info(typeof (Form1), "get old access token url:" + url);
+                        var returnText = RequestUtility.HttpGet(url, null);
+                        LogHelper.Info(typeof (Form1), "get new access token::" + returnText);
+                        var js = new JavaScriptSerializer();
+                        var returnObj = (Dictionary<string, string>) js.Deserialize(returnText.Replace("&&&START&&&", ""), typeof (Dictionary<string, string>));
+                        if (!returnObj.ContainsKey("error") && returnObj.ContainsKey("access_token") && returnObj.ContainsKey("mac_key") && returnObj.ContainsKey("refresh_token"))
+                        {
+                            richTextBox1.Text += "update access token:" + returnObj["access_token"];
+                            xiaomiDate.UpdateSettingMacAndToken(returnObj["access_token"], returnObj["mac_key"], returnObj["refresh_token"], setting.WechatId);
+                        }
+                        else
+                        {
+                            LogHelper.Error(typeof (Form1), "get new access token error:" + returnText);
+                        }
+                    }
+                    else
+                    {
+                        LogHelper.Info(typeof(Form1), "current user have not refresh token:");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(typeof(Form1), ex);
+            }
         }
     }
 }

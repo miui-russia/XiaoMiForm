@@ -1,0 +1,544 @@
+
+ 
+记录时间：2016-08-29 15:45:19,379 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:19,403 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:yj171622
+ 
+
+ 
+记录时间：2016-08-29 15:45:19,674 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:19,674 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:my829279
+ 
+
+ 
+记录时间：2016-08-29 15:45:22,316 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:22,316 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:mjq40404
+ 
+
+ 
+记录时间：2016-08-29 15:45:22,946 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:22,946 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:ffz31854
+ 
+
+ 
+记录时间：2016-08-29 15:45:23,645 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:23,645 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:llc41918
+ 
+
+ 
+记录时间：2016-08-29 15:45:26,037 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:26,037 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:ctq47321
+ 
+
+ 
+记录时间：2016-08-29 15:45:29,600 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:29,600 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:rng46065
+ 
+
+ 
+记录时间：2016-08-29 15:45:30,202 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:30,202 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:wwj65134
+ 
+
+ 
+记录时间：2016-08-29 15:45:30,381 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:30,381 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:ttf24694
+ 
+
+ 
+记录时间：2016-08-29 15:45:31,280 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:31,280 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:iht28873
+ 
+
+ 
+记录时间：2016-08-29 15:45:33,073 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:33,073 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:cjw41731
+ 
+
+ 
+记录时间：2016-08-29 15:45:34,505 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:34,505 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:mz766949
+ 
+
+ 
+记录时间：2016-08-29 15:45:36,652 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:36,653 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:mmg
+ 
+
+ 
+记录时间：2016-08-29 15:45:38,437 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:38,439 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:jja27162
+ 
+
+ 
+记录时间：2016-08-29 15:45:39,501 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:39,501 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:Mh242777
+ 
+
+ 
+记录时间：2016-08-29 15:45:41,581 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:41,582 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:epc82429
+ 
+
+ 
+记录时间：2016-08-29 15:45:41,877 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:41,877 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:jjg75285
+ 
+
+ 
+记录时间：2016-08-29 15:45:42,053 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:42,053 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:yyy15690
+ 
+
+ 
+记录时间：2016-08-29 15:45:48,246 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:48,247 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:JYX84596
+ 
+
+ 
+记录时间：2016-08-29 15:45:48,444 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:48,445 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:mcz26950
+ 
+
+ 
+记录时间：2016-08-29 15:45:48,915 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:48,915 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:hhd47208
+ 
+
+ 
+记录时间：2016-08-29 15:45:51,500 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:51,501 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:xy266066
+ 
+
+ 
+记录时间：2016-08-29 15:45:51,970 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:51,970 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:vls52310
+ 
+
+ 
+记录时间：2016-08-29 15:45:52,537 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:52,538 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:test
+ 
+
+ 
+记录时间：2016-08-29 15:45:53,698 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:53,699 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:xh300160
+ 
+
+ 
+记录时间：2016-08-29 15:45:53,914 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:53,915 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:eww68628
+ 
+
+ 
+记录时间：2016-08-29 15:45:55,492 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:55,493 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:yyl47416
+ 
+
+ 
+记录时间：2016-08-29 15:45:57,218 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:57,219 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:yyz16867
+ 
+
+ 
+记录时间：2016-08-29 15:45:58,392 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:58,393 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:ppy48050
+ 
+
+ 
+记录时间：2016-08-29 15:45:59,267 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:45:59,267 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:yyl43335
+ 
+
+ 
+记录时间：2016-08-29 15:46:00,020 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:46:00,020 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:iww83455
+ 
+
+ 
+记录时间：2016-08-29 15:46:00,469 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:46:00,470 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:jjh69349
+ 
+
+ 
+记录时间：2016-08-29 15:46:01,684 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-40000,"msg":"user access token verify failed"}
+ 
+
+ 
+记录时间：2016-08-29 15:46:01,684 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:cf39462
+ 
+
+ 
+记录时间：2016-08-29 15:46:02,501 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.XiaoMiData property: [(null)] - 
+错误描述：{"result":"error","code":-30000,"msg":"this user is not a huami user"}
+ 
+
+ 
+记录时间：2016-08-29 15:46:02,501 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.Form1 property: [(null)] - 
+错误描述：get setting date error: wechatId:13804098580
+ 

@@ -1,0 +1,32 @@
+
+ 
+记录时间：2016-08-26 17:20:02,348 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.GroupInfoMapService property: [(null)] - 
+错误描述：continue wechat: jwz36575
+ 
+
+ 
+记录时间：2016-08-26 17:20:02,377 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.GroupInfoMapService property: [(null)] - 
+错误描述：continue wechat: jwz36575
+ 
+
+ 
+记录时间：2016-08-26 17:20:02,377 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.GroupInfoMapService property: [(null)] - 
+错误描述：continue wechat: jwz36575
+ 
+
+ 
+记录时间：2016-08-26 17:20:02,378 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：XiaomiWinForm.GroupInfoMapService property: [(null)] - 
+错误描述：continue wechat: jwz36575
+ 

@@ -58,7 +58,7 @@ namespace XiaomiWinForm
             var result = SqlHelper.ConvertTo<Score>(data).ToList();
             foreach (var score in result)
             {
-                var traget=allMetadata.Find(m => m.WechatId == score.WechatId&&DateTime.Compare(m.CreatedDate.Date,score.CreatedDate.Date)==0);
+                var traget=allMetadata.Find(m => m.WechatId.ToLower() == score.WechatId.ToLower()&&DateTime.Compare(m.CreatedDate.Date,score.CreatedDate.Date)==0);
                 if (traget != null)
                 {
                     traget.Score += score.score;                    

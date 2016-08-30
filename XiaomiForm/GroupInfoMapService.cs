@@ -12,7 +12,7 @@ namespace XiaomiWinForm
     {
         private Dictionary<string, string> getGroupAndUserMap()
         {
-            var result = new Dictionary<string, string>();
+            var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             var conn = XiaoMiData.GetConnectstr();
             var sql = @"select Account,GroupName from Innocellence_GSK_WeChat_HM_GroupInfo";
             using (SqlConnection connection = new SqlConnection(conn))
@@ -58,20 +58,10 @@ namespace XiaomiWinForm
                     continue;
                 }
                 var groupInfo = new GroupScoreRank();
-                if (result.Exists(m => m.GroupName == (groupMap.ContainsKey(metaData.WechatId) ? groupMap[metaData.WechatId] : "Other")))
+                var currentDate = result.Find(g => g.ScoreData == metaData.CreatedDate && g.GroupName == (groupMap.ContainsKey(metaData.WechatId) ? groupMap[metaData.WechatId] : "Other"));
+                if (currentDate != null)
                 {
-                    var currentDate = result.Find(g => g.ScoreData == metaData.CreatedDate && g.GroupName == (groupMap.ContainsKey(metaData.WechatId) ? groupMap[metaData.WechatId] : "Other"));
-                    if (currentDate != null)
-                    {
-                        currentDate.Score += metaData.Score;
-                    }
-                    else
-                    {
-                        groupInfo.GroupName = groupMap.ContainsKey(metaData.WechatId) ? groupMap[metaData.WechatId] : "Other";
-                        groupInfo.Score = metaData.Score;
-                        groupInfo.ScoreData = metaData.CreatedDate;
-                        result.Add(groupInfo);
-                    }
+                    currentDate.Score += metaData.Score;
                 }
                 else
                 {
