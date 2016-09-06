@@ -20,9 +20,9 @@ namespace XiaomiWinForm
             foreach (var metadata in allMetaData)
             {
                 var onePerson = new PersonScoreRank();
-                if (personRank.Exists(p => p.WechatId == metadata.WechatId))
+                if (personRank.Exists(p => p.WechatId.ToLower() == metadata.WechatId.ToLower()))
                 {
-                    var personScoreRank = personRank.FirstOrDefault(p => p.WechatId == metadata.WechatId);
+                    var personScoreRank = personRank.FirstOrDefault(p => p.WechatId.ToLower() == metadata.WechatId.ToLower());
                     if (personScoreRank != null)
                     {
                         personScoreRank.Score += metadata.Score;
@@ -82,7 +82,6 @@ namespace XiaomiWinForm
         {
             return string.Format("INSERT INTO Innocellence_GSK_WeChat_HM_PersonScoreRank values ('{0}',N'{1}','{2}','{3}') ", wechatId, wechatName, rank, score);
         }
-
 
     }
 }

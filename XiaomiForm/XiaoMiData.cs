@@ -87,7 +87,7 @@ namespace XiaomiWinForm
             {
                 connection.Open();
                 var data = SqlHelper.ExecuteReader(connection, CommandType.Text, sql);
-                var result = new Dictionary<string, string>();
+                var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
                 while (data.Read())
                 {
                     result[data.GetString(0)] = data.GetString(1);

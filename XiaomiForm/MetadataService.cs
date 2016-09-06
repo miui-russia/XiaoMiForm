@@ -24,7 +24,7 @@ namespace XiaomiWinForm
             var metaDataResult = SqlHelper.ConvertTo<MetaData>(data).ToList();
             if (metaDataResult.Count > 0)
             {
-                SqlHelper.ExecuteNonQuery(conn, CommandType.Text, string.Format(updateString, xiaoMiData.step, (int.Parse(xiaoMiData.step) > 8000 ? 1 : 0), personSetting.WechatId, xiaoMiData.date));
+                SqlHelper.ExecuteNonQuery(conn, CommandType.Text, string.Format(updateString, xiaoMiData.step, (int.Parse(xiaoMiData.step) > 7999 ? 1 : 0), personSetting.WechatId, xiaoMiData.date));
             }
             else
             {
@@ -58,7 +58,7 @@ namespace XiaomiWinForm
             var result = SqlHelper.ConvertTo<Score>(data).ToList();
             foreach (var score in result)
             {
-                var traget=allMetadata.Find(m => m.WechatId.ToLower() == score.WechatId.ToLower()&&DateTime.Compare(m.CreatedDate.Date,score.CreatedDate.Date)==0);
+                var traget=allMetadata.Find(string.Compare(m => m.WechatId.ToLower() , score.WechatId.ToLower(),true)==0&&DateTime.Compare(m.CreatedDate.Date,score.CreatedDate.Date)==0);
                 if (traget != null)
                 {
                     traget.Score += score.score;                    
